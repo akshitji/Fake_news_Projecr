@@ -5,7 +5,6 @@ import pandas as pd
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# ✅ Set Page Configuration
 stl.set_page_config(page_title="Fake News Detection", page_icon="📰", layout="centered")
 
 # Corrected Paths Using Double Backslashes
@@ -25,7 +24,7 @@ with open(vectorizer_path, 'rb') as vec_file:
 
 
 
-# 🎨 Optimized Dark Theme CSS
+
 dark_theme_css = """
 <style>
 /* Global App Styles */
@@ -91,19 +90,19 @@ div[class*="stAlert warning"] {
 </style>
 """
 
-# 🎨 Apply Dark Theme CSS
+
 stl.markdown(dark_theme_css, unsafe_allow_html=True)
 
-# 📰 Page Title
+
 stl.title("📰 Fake News Detector")
 
-# 📩 Headline (Title) Input
+
 headline = stl.text_input("Enter the News Headline (Title)")
 
-# 📝 News Content (Text) Input
+
 content = stl.text_area("Enter the News Content (Text)")
 
-# 🚀 Detect Button Logic
+
 if stl.button("Detect Fake News"):
     if headline and content:
         # Combine title and content to match training data format
@@ -117,8 +116,8 @@ if stl.button("Detect Fake News"):
         # Make prediction
         prediction = model.predict(input_vectorized)[0]
         if prediction == 1:
-            stl.success("✅ This News is **Real!**")
+            stl.success(" This News is **Real!**")
         else:
-            stl.error("⚠️ This News is **Fake!**")
+            stl.error(" This News is **Fake!**")
     else:
-        stl.warning("⚠️ Please enter both title and content before submitting.")
+        stl.warning(" Please enter both title and content before submitting.")
