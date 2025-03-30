@@ -2,13 +2,13 @@
 
 import streamlit as stl
 import pandas as pd
-import pickle
-from sklearn.feature_extraction.text import TfidfVectorizer
+import pickle  # To download and load the model that have been trained 
+from sklearn.feature_extraction.text import TfidfVectorizer 
 
 stl.set_page_config(page_title="Fake News Detection", page_icon="📰", layout="centered")
 
 # Corrected Paths Using Double Backslashes
-model_path = 'C:\\Users\\akshi\\downloads\\project\\fake_news_model.pkl'
+model_path = 'C:\\Users\\akshi\\downloads\\project\\fake_news_model.pkl'  # Path of Downloaded model on Kaggle 
 vectorizer_path = 'C:\\Users\\akshi\\downloads\\project\\tfidf_vectorizer.pkl'
 
 
@@ -22,18 +22,19 @@ with open(vectorizer_path, 'rb') as vec_file:
 
 
 
-
+# Apply CSS commands to make it more interactive, Streamlit does not support much interactive commands 
 
 
 dark_theme_css = """
 <style>
 /* Global App Styles */
-.stApp {
+# It helps to change the color of background 
+.stApp {   
     background-color: #1E1E1E !important;
-    color: #FFFFFF !important;
+    color: #FFFFFF !important; 
 }
 
-/* Heading Styles */
+# It will work only on the heading part 
 h1 {
     font-size: 36px;
     font-weight: bold;
@@ -42,7 +43,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Input Field Styles */
+# It will change the theme and font size of the input we are giving 
 .stTextInput>div>div>input {
     background-color: #000;
     color: #fff;
@@ -91,7 +92,7 @@ div[class*="stAlert warning"] {
 """
 
 
-stl.markdown(dark_theme_css, unsafe_allow_html=True)
+stl.markdown(dark_theme_css, unsafe_allow_html=True) # By this Command we can allow CSS styling on our Streamlit Interface 
 
 
 stl.title("📰 Fake News Detector")
